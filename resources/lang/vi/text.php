@@ -24,5 +24,9 @@ return [
     'start_at' => 'Thời gian bắt đầu',
     'end_at' => 'Thời gian kết thúc',
     'discount' => 'Phần trăm giảm giá',
+    'shop' => 'Cửa hàng',
+    'province' => 'Tỉnh/Thành phố',
+    'address' => 'Địa chỉ',
+    'phone' => 'Số điện thoại',
 ];
 ?>

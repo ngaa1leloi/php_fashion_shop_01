@@ -28,13 +28,13 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="admin/manufacturer/list"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.manufacturer') }}<span class="fa arrow"></span></a>
+                <a href="{{ route('list_manufacturer') }}"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.manufacturer') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/manufacturer/list">{{ __('text.list') }}</a>
+                        <a href="{{ route('list_manufacturer') }}">{{ __('text.list') }}</a>
                     </li>
                     <li>
-                        <a href="admin/manufacturer/add">{{ __('text.add') }}</a>
+                        <a href="{{ route('add_manufacturer') }}">{{ __('text.add') }}</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -71,6 +71,18 @@
                     </li>
                     <li>
                         <a href="{{ route('add_slide') }}">{{ __('text.add') }}</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="{{ route('list_shop') }}"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.shop') }}<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{ route('list_shop') }}">{{ __('text.list') }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('add_shop') }}">{{ __('text.add') }}</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

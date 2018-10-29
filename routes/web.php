@@ -62,4 +62,17 @@ Route::prefix('admin')->group(function () {
 
         Route::get('delete/{id}', 'PromotionController@getDelete')->name('delete_promotion');
     });
+
+    Route::group(['prefix' => 'shop'], function()
+    {
+        Route::get('list', 'ShopController@getList')->name('list_shop');
+
+        Route::get('add', 'ShopController@getAdd')->name('add_shop');
+        Route::post('add', 'ShopController@postAdd')->name('add_shop');
+
+        Route::get('edit/{id}', 'ShopController@getEdit')->name('edit_shop');
+        Route::post('edit/{id}', 'ShopController@postEdit')->name('edit_shop');
+
+        Route::get('delete/{id}', 'ShopController@getDelete')->name('delete_shop');
+    });
 });

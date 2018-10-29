@@ -24,5 +24,9 @@ return [
     'start_at' => 'Start time',
     'end_at' => 'End time',
     'discount' => 'Percent discount',
+    'shop' => 'Shop',
+    'province' => 'Province',
+    'address' => 'Address',
+    'phone' => 'Phone',
 ];
 ?>

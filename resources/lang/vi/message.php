@@ -1,11 +1,11 @@
 <?php
 return [
-    'add' => 'Thêm thành công',
-    'edit' => 'Sửa thành công',
-    'delete' => 'Xóa thành công',
-    'link_required' => 'Bạn chưa nhập đường dẫn',
-    'image_required' => 'Bạn chưa chọn hình ảnh',
-    'image_format' => 'Tệp được chọn phải là tệp hình ảnh',
+    'add' => 'Thêm thành công.',
+    'edit' => 'Sửa thành công.',
+    'delete' => 'Xóa thành công.',
+    'link_required' => 'Bạn chưa nhập đường dẫn.',
+    'image_required' => 'Bạn chưa chọn hình ảnh.',
+    'image_format' => 'Tệp được chọn phải là tệp hình ảnh.',
     'name_requỉred' => 'Bạn chưa nhập tên.',
     'name_max' => 'Tên phải có độ dài bé hơn 100 ký tự.',
     'name_min' => 'Tên phải có độ dài lớn hơn 3 ký tự.',
@@ -24,5 +24,11 @@ return [
     'discount_max' => 'Phần trăm giảm giá phải bé hơn 100.',
     'start_at' => 'Bạn chưa nhập ngày bắt đầu khuyến mại',
     'end_at' => 'Bạn chưa nhập ngày kết thúc khuyến mại',
+    'province' => 'Bạn chưa chọn tỉnh/thành phố.',
+    'address' => 'Bạn chưa nhập địa chỉ.',
+    'address_min' => 'Địa chỉ phải có ít nhất 10 kí tự.',
+    'adress_max' => 'Địa chỉ phải có nhiều nhất 100 kí tự.',
+    'phone' => 'Bạn chưa nhập số điện thoại.',
+    'phone_regex' => 'Số điện thoại chỉ được phép chứa 10 chữ số.',
 ];
 ?>

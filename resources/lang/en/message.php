@@ -24,5 +24,11 @@ return [
     'discount_max' => 'Discount may not be greater than 100.',
     'start_at' => 'The start time is required.',
     'end_at' => 'The end time is required.',
+    'province' => 'The province field is required',
+    'address' => 'The address field is required',
+    'address_min' => 'Address must be at least 10 characters.',
+    'adress_max' => 'Address may not be greater than 100 characters.',
+    'phone' => 'The phone field is required.',
+    'phone_regex' => 'The phone number must be 10 digits.',
 ];
 ?>
