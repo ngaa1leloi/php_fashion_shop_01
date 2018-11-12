@@ -41,4 +41,6 @@ return [
     'parent_category.required' => 'Chưa chọn thể loại cha',
     'priority.required' => 'Chưa chọn độ ưu tiên',
     'priority.Integer' => 'Độ ưu tiên phải là một số',
+    'comment_require' => 'Bạn chưa nhập bỉnh luận',
+    'comment_min' => 'Bình luận tối thiểu 3 ký tự',
 ];

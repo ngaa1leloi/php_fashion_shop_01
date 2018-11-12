@@ -37,4 +37,6 @@ return [
     'parent_category.required' => 'Parent Category name is required',
     'priority.required' => 'Priority is required',
     'priority.Integer' => 'Priority must be Integer',
+    'comment_require' => 'Please enter your comment',
+    'comment_min' => 'Comment must be at least 3 characters',
 ];
