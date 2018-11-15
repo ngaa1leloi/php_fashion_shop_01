@@ -3,9 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Promotion;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+use Carbon\Carbon;
 
 class Product extends Model
 {
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
+
     protected $table = 'products';
 
     public function productShops()
@@ -46,5 +53,34 @@ class Product extends Model
     public function billProducts()
     {
         return $this->hasMany(BillProduct::class);
+    }
+
+    public function productImages()
+    {
+        return $this->hasManyThrough(
+            'App\Models\ProductImage',
+            'App\Models\ProductColor',
+            'product_id',
+            'product_color_id',
+            'id'
+        );
+    }
+    
+    public function promotions()
+    {   
+        return $this->belongsToMany(Promotion::class);
+    }
+
+    public function getPromotions()
+    {
+        $date_now = Carbon::now()->toDateString();
+        $sum = 0;
+        foreach ($this->promotions as $promo) {
+            if(($promo->start_at <= $date_now) && ($date_now <= $promo->end_at)){
+                $sum += $promo->discount;
+            }
+        }
+
+        return $sum;        
     }
 }

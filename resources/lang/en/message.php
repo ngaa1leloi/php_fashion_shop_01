@@ -6,7 +6,7 @@ return [
     'link_required' => 'The link field is required.',
     'image_required' => 'The image field is required.',
     'image_format' => 'The file must be an image.',
-    'name_requỉred' => 'Name field is required.',
+    'name_required' => 'Name field is required.',
     'name_max' => 'Name may not be greater  than 100 characters.',
     'name_min' => 'Name must be at least 3 characters.',
     'name_unique' => 'Name has already been taken.',
@@ -37,4 +37,6 @@ return [
     'parent_category.required' => 'Parent Category name is required',
     'priority.required' => 'Priority is required',
     'priority.Integer' => 'Priority must be Integer',
+    'comment_require' => 'Please enter your comment',
+    'comment_min' => 'Comment must be at least 3 characters',
 ];
