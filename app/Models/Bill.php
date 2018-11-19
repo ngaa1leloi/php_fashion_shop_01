@@ -3,10 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Bill extends Model
 {
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
+
     protected $table = 'bills';
+
+    protected $fillable = [
+        'user_id',
+        'note',
+        'total_amount',
+        'method_of_payment',
+    ];
 
     public function billProducts()
     {

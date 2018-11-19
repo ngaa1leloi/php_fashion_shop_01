@@ -3,10 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductSize extends Model
 {
+    use SoftDeletes;
+
     protected $table = 'product_sizes';
+
+    protected $dates = ['deleted_at'];
+
+    protected $fillable = [
+        'product_id',
+        'size',
+    ];
 
     public function productShops()
     {

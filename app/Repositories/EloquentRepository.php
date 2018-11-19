@@ -64,6 +64,20 @@ abstract class EloquentRepository implements RepositoryInterface
         return $result;
     }
 
+    public function whereNull($id)
+    {
+        $result = $this->model->whereNull($id)->get();
+        
+        return $result;
+    }
+
+    public function whereNotNull($id)
+    {
+        $result = $this->model->whereNotNull($id)->get();
+        
+        return $result;
+    }
+
     public function create(array $attributes)
     {
         return $this->model->create($attributes);
@@ -71,7 +85,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     public function update($id, array $attributes)
     {
-        $result = $this->findOrFail($id);
+        $result = $this->model->findOrFail($id);
         if ($result)
         {
             $result->update($attributes);
@@ -84,7 +98,7 @@ abstract class EloquentRepository implements RepositoryInterface
 
     public function delete($id)
     {
-        $result = $this->find($id);
+        $result = $this->model->find($id);
         if ($result)
         {
             $result->delete();

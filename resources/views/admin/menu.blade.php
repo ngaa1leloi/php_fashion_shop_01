@@ -13,16 +13,16 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-dashboard fa-fw"></i> {{ __('text.dashboard') }}</a>
+                <a href="{{ route('list_category') }}"><i class="fa fa-dashboard fa-fw"></i> {{ __('text.dashboard') }}</a>
             </li>
             <li>
-                <a href="admin/category/list"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.category') }}<span class="fa arrow"></span></a>
+                <a href="{{ route('list_category') }}"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.category') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/category/list">{{ __('text.list') }}</a>
+                        <a href="{{ route('list_category') }}">{{ __('text.list') }}</a>
                     </li>
                     <li>
-                        <a href="admin/category/add">{{ __('text.add') }}</a>
+                        <a href="{{ route('add_category') }}">{{ __('text.add') }}</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -40,13 +40,13 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-cube fa-fw"></i> {{ __('text.product') }}<span class="fa arrow"></span></a>
+                <a href="{{ route('list_product') }}"><i class="fa fa-cube fa-fw"></i> {{ __('text.product') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/product/list">{{ __('text.list') }}</a>
+                        <a href="{{ route('list_product') }}">{{ __('text.list') }}</a>
                     </li>
                     <li>
-                        <a href="admin/product/add">{{ __('text.add') }}</a>
+                        <a href="{{ route('add_category') }}">{{ __('text.add') }}</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -88,13 +88,19 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
-                <a href="#"><i class="fa fa-users fa-fw"></i> {{ __('text.user') }}<span class="fa arrow"></span></a>
+                <a href="{{ route('list_user') }}"><i class="fa fa-users fa-fw"></i> {{ __('text.user') }}<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/user/list">{{ __('text.list') }}</a>
+                        <a href="{{ route('list_user') }}">{{ __('text.list') }}</a>
                     </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="{{ route('list_bill') }}"><i class="fa fa-bar-chart-o fa-fw"></i>{{ __('text.bill') }}<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
                     <li>
-                        <a href="admin/user/add">{{ __('text.add') }}</a>
+                        <a href="{{ route('list_bill') }}">{{ __('text.list') }}</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

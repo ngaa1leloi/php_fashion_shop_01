@@ -7,10 +7,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProductColor extends Model
 {
+    protected $table = 'product_colors';
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    protected $table = 'product_colors';
+    protected $fillable = [
+        'product_id',
+        'color',
+    ];
 
     public function productShops()
     {

@@ -7,26 +7,34 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Requests\PostAddCategoryRequest;
 use App\Http\Requests\PostEditCategoryRequest;
+use App\Repositories\CategoryRepository;
 
 class CategoryController extends Controller
 {
+    private $categoryRepository;
+
+    public function __construct(CategoryRepository $categoryRepository)
+    {
+        $this->categoryRepository = $categoryRepository;
+    }
+
     public function getList()
     {
-        $category = Category::all();
+        $category = $this->categoryRepository->all();
 
         return view('admin/category/list', ['category' => $category]);
     }
 
     public function getAdd()
     {
-        $list_top_category = Category::whereNull('parent_id')->get();
+        $list_top_category = $this->categoryRepository->whereNull('parent_id');
         
         return view('admin.category.add', ['list_top_category' => $list_top_category]);
     }
 
     public function postAdd(PostAddCategoryRequest $request)
     {
-        $category = Category::create([
+        $category = $this->categoryRepository->create([
             'name' => $request->name,
             'parent_id' => $request->parent_category,
             'slug' => str_slug($request->name),
@@ -38,12 +46,12 @@ class CategoryController extends Controller
 
     public function getEdit($id)
     {
-        $category = Category::findOrFail($id);
-        $list_top_category = Category::whereNull('parent_id')->get();
+        $category = $this->categoryRepository->find($id);
+        $list_top_category = $this->categoryRepository->whereNull('parent_id');
         $curent_category = $category;
         while ($curent_category->parent_id != null) {
             $parent_category_id = $curent_category->parent_id;
-            $parent_category = Category::findOrFail($parent_category_id);
+            $parent_category = $this->categoryRepository->find($parent_category_id);
             $curent_category = $parent_category;
         }
         $top_category_id = $curent_category->id;
@@ -53,20 +61,21 @@ class CategoryController extends Controller
 
     public function postEdit(PostEditCategoryRequest $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $category->name = $request->name;
-        $category->parent_id = $request->parent_category;
-        $category->slug = str_slug($request->name);
-        $category->priority = $request->priority;
-        $category->save();
+        $category = $this->categoryRepository->find($id);
+        $category = $this->productRepository->update($id, [
+            'name' => $request->name,
+            'parent_id' => $request->parent_category,
+            'slug' => str_slug($request->name),
+            'priority' => $request->priority,
+        ]);
 
-        return redirect()->route('getEditCategory', ['id' => $id])->with('success', __('message.edit'));
+        return redirect()->route('edit_category', ['id' => $id])->with('success', __('message.edit'));
     }
 
     public function getDelete($id)
     {
-        $selected_category = Category::findOrFail($id);
-        $category_list = Category::whereNotNull('parent_id')->get();
+        $selected_category = $this->productRepository->find($id);
+        $category_list = $this->productRepository->whereNotNull('parent_id');
         $array = collect([$id => $selected_category]);
         foreach ($category_list as $cat) {
             $curent_category = $cat;
@@ -76,7 +85,7 @@ class CategoryController extends Controller
                     break;
                 } else {
                     $parent_category_id = $curent_category->parent_id;
-                    $parent_category = Category::findOrFail($parent_category_id);
+                    $parent_category = $this->productRepository->find($parent_category_id);
                     $curent_category = $parent_category;
                 }
             }
@@ -85,6 +94,6 @@ class CategoryController extends Controller
             $deleted_category->delete();
         }
 
-        return redirect()->route('getListCategory')->with('success', __('message.delete'));
+        return redirect()->route('list_category')->with('success', __('message.delete'));
     }
 }
